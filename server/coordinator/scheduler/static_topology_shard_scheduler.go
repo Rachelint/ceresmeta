@@ -82,7 +82,7 @@ func (s *StaticTopologyShardScheduler) Schedule(ctx context.Context, clusterSnap
 					return ScheduleResult{}, err
 				}
 				procedures = append(procedures, p)
-				reasons.WriteString(fmt.Sprintf("Cluster initialization, assign shard to node, shardID:%d, nodeName:%s. ", shardNode.ID, node.Node.Name))
+				reasons.WriteString(fmt.Sprintf("Cluster reassign shards, assign shard to node, shardID:%d, nodeName:%s. ", shardNode.ID, node.Node.Name))
 				if len(procedures) >= int(s.procedureExecutingBatchSize) {
 					break
 				}
